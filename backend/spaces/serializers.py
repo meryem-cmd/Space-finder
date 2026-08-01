@@ -11,6 +11,8 @@ class SpaceSerializer(serializers.ModelSerializer):
 
 
 class TimeSlotSerializer(serializers.ModelSerializer):
+    space = serializers.PrimaryKeyRelatedField(read_only=True)
+
     class Meta:
         model = TimeSlot
         fields = ['id', 'space', 'start_time', 'end_time', 'is_booked']
